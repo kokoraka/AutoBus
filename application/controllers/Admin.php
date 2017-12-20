@@ -30,6 +30,7 @@ class Admin extends CI_Controller {
 		}
 		else {
 			$this->load->view('templates/header');
+			$this->load->view('templates/appbar');
 			$this->load->view('admin/' . $page);
 			$this->load->view('templates/footer');
 		}

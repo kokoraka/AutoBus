@@ -22,6 +22,7 @@ class Home extends CI_Controller {
 	 public function __construct() {
 		 parent::__construct();
 		 $this->load->helper('url');
+		 $this->load->model('village');
 	 }
 
 	public function view($page = 'main') {
@@ -29,8 +30,9 @@ class Home extends CI_Controller {
 			show_404();
 		}
 		else {
+			$village = new Village();
 			$this->load->view('templates/header');
-			$this->load->view('templates/appbar');
+			$this->load->view('templates/appbar', ['village' => $village->get_village()]);
 			$this->load->view($page);
 			$this->load->view('templates/footer');
 		}

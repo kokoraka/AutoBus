@@ -1,7 +1,7 @@
 <div class="container-fluid">
 
-  <div class="app-bar darcula">
-    <a class="app-bar-element" href="#">
+  <div class="app-bar bg-black darcula">
+    <a class="app-bar-element">
       <span id="toggle-tiles-dropdown" class="mif-apps mif-2x"></span>
       <div class="app-bar-drop-container" data-role="dropdown" data-toggle-element="#toggle-tiles-dropdown" data-no-close="false" style="width: 324px;">
         <div class="tile-container bg-white">
@@ -32,18 +32,6 @@
     <span class="app-bar-divider"></span>
     <ul class="app-bar-menu">
       <li><a href="<?php echo base_url('/'); ?>">Beranda</a></li>
-      <li>
-        <a href="<?php echo base_url('/ticket/'); ?>" class="dropdown-toggle">Tiket</a>
-        <ul class="d-menu" data-role="dropdown">
-          <li><a href="">ABC</a></li>
-          <li class="divider"></li>
-          <li><a href="" class="dropdown-toggle">DEF</a>
-            <ul class="d-menu" data-role="dropdown">
-              <li><a href="">GHI</a></li>
-            </ul>
-          </li>
-        </ul>
-      </li>
       <li><a href="<?php echo base_url('/about/'); ?>">Tentang</a></li>
     </ul>
     <div class="app-bar-element place-right">
