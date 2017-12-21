@@ -39,7 +39,7 @@
       <div class="app-bar-drop-container bg-white fg-dark place-right" data-role="dropdown" data-no-close="true">
         <div class="padding20">
           <form>
-            <h4 class="text-light">Login to service...</h4>
+            <h4 class="text-light">Login</h4>
             <div class="input-control text">
               <span class="mif-user prepend-icon"></span>
               <input type="text" placeholder="Username">
@@ -54,8 +54,7 @@
               <span class="caption">Remember me</span>
             </label>
             <div class="form-actions">
-              <button class="button">Login</button>
-              <button class="button link">Cancel</button>
+              <button class="button bg-darkRed fg-white">Login</button>
             </div>
           </form>
         </div>

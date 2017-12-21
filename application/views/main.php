@@ -9,7 +9,7 @@
           </div>
         </form>
       </div>
-      <a class="place-left fg-black padding10" href="#" title="">
+      <a class="place-left fg-black padding10 no-padding-top" href="#" title="">
         <h1 class="">Bandung AutoBus</h1>
       </a>
     </div>
