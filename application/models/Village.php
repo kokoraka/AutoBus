@@ -17,5 +17,12 @@
      }
    }
 
+   public function get_village_name($id) {
+     if ($id) {
+       $qry = "SELECT village_name FROM village WHERE village_id='$id'";
+       return $this->db->query($qry)->row()->village_name;
+     }
+   }
+
   }
 ?>

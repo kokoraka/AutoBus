@@ -13,7 +13,9 @@
             </li>
             <li class="place-right fg-white bg-hover-white fg-hover-black"><a href="<?php echo base_url('/about/'); ?>">Tentang</a></li>
             <li class="place-right fg-white bg-hover-white fg-hover-black"><a href="<?php echo base_url('/ticket/'); ?>">Tiket</a></li>
+            <?php if ($logged_in === FALSE) { ?>
             <li class="place-right fg-white bg-hover-white fg-hover-black"><a href="<?php echo base_url('/login/'); ?>">Login</a></li>
+            <?php } ?>
           </ul>
         </div>
       </footer>

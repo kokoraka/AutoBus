@@ -34,6 +34,7 @@
       <li><a href="<?php echo base_url('/'); ?>">Beranda</a></li>
       <li><a href="<?php echo base_url('/about/'); ?>">Tentang</a></li>
     </ul>
+    <?php if ($logged_in === FALSE) { ?>
     <div class="app-bar-element place-right">
       <a class="dropdown-toggle fg-white"><span class="mif-enter"></span> Login</a>
       <div class="app-bar-drop-container bg-white fg-dark place-right" data-role="dropdown" data-no-close="true">
@@ -48,11 +49,6 @@
               <span class="mif-lock prepend-icon"></span>
               <input type="password" placeholder="Password">
             </div>
-            <label class="input-control checkbox small-check">
-              <input type="checkbox">
-              <span class="check"></span>
-              <span class="caption">Remember me</span>
-            </label>
             <div class="form-actions">
               <button class="button bg-darkRed fg-white">Login</button>
             </div>
@@ -60,6 +56,16 @@
         </div>
       </div>
     </div>
+    <?php } else { ?>
+      <div class="app-bar-element place-right">
+        <a class="dropdown-toggle fg-white"><span class="mif-enter"></span> Profil</a>
+        <div class="app-bar-drop-container bg-white fg-dark place-right" data-role="dropdown" data-no-close="true">
+          <div class="padding20">
+            <a class="fg-black" href="<?php echo base_url('/logout/'); ?>">Keluar</a>
+          </div>
+        </div>
+      </div>
+    <?php } ?>
   </div>
 
 </div>

@@ -1,14 +1,6 @@
 <div class="container">
   <header class="margin20 no-margin-left no-margin-right">
     <div class="clear-float">
-      <div class="place-right">
-        <form>
-          <div class="input-control text margin20" style="width: 300px">
-            <input type="text" name="q" placeholder="Cari...">
-            <button class="button"><span class="mif-search"></span></button>
-          </div>
-        </form>
-      </div>
       <a class="place-left fg-black padding10 no-padding-top" href="#" title="">
         <h1 class="">Bandung AutoBus</h1>
       </a>
@@ -16,9 +8,8 @@
 
     <!-- main menu -->
     <ul class="m-menu bg-grayDark">
-      <li class="bg-grayDark fg-white"><a href="#">Hari ini</a></li>
-      <li class="bg-grayDark fg-white"><a href="#">Besok</a></li>
-      <li class="bg-grayDark fg-white"><a href="#">Lusa</a></li>
+      <li class="bg-grayDark fg-white"><a href="<?php echo base_url('/ticket/#today') ?>">Hari ini</a></li>
+      <li class="bg-grayDark fg-white"><a href="<?php echo base_url('/ticket/#tomorrow') ?>">Besok</a></li>
 
       <li class="place-right bg-grayDark fg-white">
         <a href="#" class="dropdown-toggle">Lokasi</a>
@@ -77,7 +68,7 @@
                         <option value="<?php echo $value->village_id; ?>">
                           <?php echo $value->village_name; ?>
                         </option>
-                        <?php } ?>
+                      <?php } ?>
                     </select>
                   </div>
                   <div class="input-control select" style="width: 35%;">
@@ -87,7 +78,7 @@
                         <option value="<?php echo $value->village_id; ?>">
                           <?php echo $value->village_name; ?>
                         </option>
-                        <?php } ?>
+                      <?php } ?>
                     </select>
                   </div>
                   <button type="button" class="button bg-darkRed bg-active-grayDark fg-white">Cari tiket</button>
@@ -122,45 +113,110 @@
           </div>
         </div>
 
-        <a href="<?php echo base_url('/about/'); ?>">
-          <div class="tile-big tile-wide-y bg-white" data-role="tile">
-            <div class="tile-content">
-              <div class="panel" style="height: 100%">
-                <div class="heading bg-black fg-white"><span class="title text-light">Tentang BAB (Bandung AutoBus)</span></div>
-                <div class="content fg-dark clear-float" style="height: 100%">
-                  <img src="../images/jeki_chan.jpg" class="place-left margin10" style="height: 230px">
-                  <h2 class="text-light">Om-Chan</h2>
-                  <p>
-                    Nanti ngetiknya ya!
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-        </a>
-
-
-        <div class="tile-big ol-transparent" data-role="tile">
-          <div class="tile-content">
-            <div class="carousel square-markers" data-role="carousel" data-height="100%" data-width="100%" data-controls="false">
-              <div class="slide">
-                <img src="<?php echo base_url('/files/images/gallery/gallery-1.jpg') ?>" data-role="fitImage" data-format="fill">
-              </div>
-              <div class="slide">
-                <img src="<?php echo base_url('/files/images/gallery/gallery-2.jpg') ?>" data-role="fitImage" data-format="fill">
-              </div>
-              <div class="slide">
-                <img src="<?php echo base_url('/files/images/gallery/gallery-3.jpg') ?>" data-role="fitImage" data-format="fill">
-              </div>
-            </div>
-          </div>
-        </div>
-
-
       </div>
       <!-- End first group -->
 
     </div>
   </div>
   <!-- End of tiles -->
+
+  <div class="grid">
+    <div class="row cells2">
+      <div class="cell">
+
+        <div class="listview-outlook padding10" data-role="listview">
+
+          <div class="list-group">
+            <span class="list-group-toggle">Semua tiket</span>
+            <div class="list-group-content">
+              <?php foreach ($ticket as $key => $value) { ?>
+                <a href="<?php echo base_url('/ticket/' . $value->ticket_id); ?>">
+                  <?php echo $value->ticket_name; ?>
+                  <br />
+                  <div class="grid">
+                    <div class="row cells2">
+                      <div class="cell align-left">
+                        <?php echo $value->ticket_date_depart; ?>
+                      </div>
+                      <div class="cell align-right">
+                        [<?php echo $this->village->get_village_name($value->source_id); ?> - <?php echo $this->village->get_village_name($value->destination_id); ?>]
+                      </div>
+                    </div>
+                  </div>
+                </a>
+              <?php } ?>
+            </div>
+          </div>
+
+          <div class="list-group">
+            <span class="list-group-toggle">Hari ini</span>
+            <div class="list-group-content">
+              <?php foreach ($ticket_today as $key => $value) { ?>
+
+                <a href="<?php echo base_url('/ticket/' . $value->ticket_id); ?>">
+                  <?php echo $value->ticket_name; ?>
+                  <br />
+                  <div class="grid">
+                    <div class="row cells2">
+                      <div class="cell align-left">
+                        <?php echo $value->ticket_date_depart; ?>
+                      </div>
+                      <div class="cell align-right">
+                        [<?php echo $this->village->get_village_name($value->source_id); ?> - <?php echo $this->village->get_village_name($value->destination_id); ?>]
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+              <?php } ?>
+            </div>
+          </div>
+
+          <div class="list-group">
+            <span class="list-group-toggle">Besok</span>
+            <div class="list-group-content">
+              <?php foreach ($ticket_tomorrow as $key => $value) { ?>
+
+                <a href="<?php echo base_url('/ticket/' . $value->ticket_id); ?>">
+                  <?php echo $value->ticket_name; ?>
+                  <br />
+                  <div class="grid">
+                    <div class="row cells2">
+                      <div class="cell align-left">
+                        <?php echo $value->ticket_date_depart; ?>
+                      </div>
+                      <div class="cell align-right">
+                        [<?php echo $this->village->get_village_name($value->source_id); ?> - <?php echo $this->village->get_village_name($value->destination_id); ?>]
+                      </div>
+                    </div>
+                  </div>
+                </a>
+
+              <?php } ?>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+      <div class="cell">
+        <div class="" style="height: 350px;">
+          <div class="carousel square-markers" data-role="carousel" data-height="100%" data-width="100%" data-controls="false">
+            <div class="slide">
+              <img src="<?php echo base_url('/files/images/gallery/gallery-1.jpg') ?>" data-role="fitImage" data-format="fill">
+            </div>
+            <div class="slide">
+              <img src="<?php echo base_url('/files/images/gallery/gallery-2.jpg') ?>" data-role="fitImage" data-format="fill">
+            </div>
+            <div class="slide">
+              <img src="<?php echo base_url('/files/images/gallery/gallery-3.jpg') ?>" data-role="fitImage" data-format="fill">
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+    </div>
+  </div>
+
 </div>
