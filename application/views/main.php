@@ -55,6 +55,7 @@
     <div class="tile-area no-padding">
       <div class="tile-group no-margin no-padding" style="width: 100%">
 
+        <a href="<?php echo base_url('/ticket/') ?>">
         <div class="tile-big tile-wide-y tile-super-x bg-white">
           <div class="tile-content">
             <div class="panel" style="height: 100%">
@@ -90,28 +91,39 @@
             </div>
           </div>
         </div>
+        </a>
 
-
+        <a href="<?php echo base_url('/dashboard/') ?>">
         <div class="tile bg-dark fg-white" data-role="tile">
           <div class="tile-content iconic">
             <span class="icon mif-windows"></span>
           </div>
         </div>
+        </a>
+
+        <a href="<?php echo base_url('/dashboard/') ?>">
         <div class="tile bg-white fg-darkRed" data-role="tile">
           <div class="tile-content iconic">
             <span class="icon mif-bus"></span>
           </div>
         </div>
+        </a>
+        
+        <a href="<?php echo base_url('/dashboard/') ?>">
         <div class="tile bg-white fg-dark" data-role="tile">
           <div class="tile-content iconic">
             <span class="icon mif-users"></span>
           </div>
         </div>
+        </a>
+        
+        <a href="<?php echo base_url('/dashboard/') ?>">
         <div class="tile bg-darkRed fg-white" data-role="tile">
           <div class="tile-content iconic">
             <span class="icon mif-registered"></span>
           </div>
         </div>
+        </a>
 
       </div>
       <!-- End first group -->
@@ -130,7 +142,7 @@
             <span class="list-group-toggle">Semua tiket</span>
             <div class="list-group-content">
               <?php foreach ($ticket as $key => $value) { ?>
-                <a href="<?php echo base_url('/ticket/' . $value->ticket_id); ?>">
+                <a class="fg-black" href="<?php echo base_url('/ticket/' . $value->ticket_id); ?>">
                   <?php echo $value->ticket_name; ?>
                   <br />
                   <div class="grid">
@@ -144,6 +156,7 @@
                     </div>
                   </div>
                 </a>
+                <hr class="fg-black bg-black" />
               <?php } ?>
             </div>
           </div>
@@ -153,7 +166,7 @@
             <div class="list-group-content">
               <?php foreach ($ticket_today as $key => $value) { ?>
 
-                <a href="<?php echo base_url('/ticket/' . $value->ticket_id); ?>">
+                <a class="fg-black" href="<?php echo base_url('/ticket/' . $value->ticket_id); ?>">
                   <?php echo $value->ticket_name; ?>
                   <br />
                   <div class="grid">
@@ -167,7 +180,7 @@
                     </div>
                   </div>
                 </a>
-
+                <hr class="fg-black bg-black" />
               <?php } ?>
             </div>
           </div>
@@ -177,7 +190,7 @@
             <div class="list-group-content">
               <?php foreach ($ticket_tomorrow as $key => $value) { ?>
 
-                <a href="<?php echo base_url('/ticket/' . $value->ticket_id); ?>">
+                <a class="fg-black" href="<?php echo base_url('/ticket/' . $value->ticket_id); ?>">
                   <?php echo $value->ticket_name; ?>
                   <br />
                   <div class="grid">
@@ -191,7 +204,7 @@
                     </div>
                   </div>
                 </a>
-
+                <hr class="fg-black bg-black" />
               <?php } ?>
             </div>
           </div>

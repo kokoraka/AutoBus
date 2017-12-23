@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container" style="min-height: 100vh;">
   <header class="margin20 no-margin-left no-margin-right">
     <div class="clear-float">
       <a class="place-left fg-black padding10 no-padding-top" href="#" title="">
@@ -23,7 +23,7 @@
               <div class="cell">
                 <div class="input-control select" style="width:100%;">
                   <label>Asal</label>
-                  <select class="select2">
+                  <select name="ticket-search-source" class="select2">
                     <?php foreach ($village as $key => $value) { ?>
                       <option value="<?php echo $value->village_id; ?>">
                         <?php echo $value->village_name; ?>
@@ -35,7 +35,7 @@
               <div class="cell">
                 <div class="input-control select" style="width:100%;">
                   <label>Tujuan</label>
-                  <select class="select2">
+                  <select name="ticket-search-destination" class="select2">
                     <?php foreach ($village as $key => $value) { ?>
                       <option value="<?php echo $value->village_id; ?>">
                         <?php echo $value->village_name; ?>
@@ -45,16 +45,16 @@
                 </div>
               </div>
               <div class="cell">
-                <button type="button" class="button bg-darkRed bg-active-grayDark fg-white">Cari tiket</button>
+                <button type="button" name="search-ticket" class="button bg-darkRed bg-active-grayDark fg-white">Cari tiket</button>
               </div>
             </div>
           </div>
         </form>
 
 
-        <div class="listview-outlook" data-role="listview">
+        <div id="ticket-search-result" class="listview-outlook" data-role="listview">
 
-          <div class="list-group">
+          <div id="all" class="list-group">
             <span class="list-group-toggle">Semua tiket</span>
             <div class="list-group-content">
               <?php foreach ($ticket as $key => $value) { ?>

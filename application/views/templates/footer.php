@@ -1,6 +1,6 @@
 
 
-    <div class="container-fluid bg-black fg-white padding20 no-padding-left no-padding-right margin30 no-margin-left no-margin-right no-margin-bottom">
+    <div class="container-fluid bg-black fg-white padding20 no-padding-left no-padding-right">
       <footer>
         <div class="bottom-menu-wrapper">
           <ul class="horizontal-menu compact">

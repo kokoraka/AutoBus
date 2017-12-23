@@ -1,37 +1,14 @@
 <div class="container-fluid">
 
   <div class="app-bar bg-black darcula">
-    <a class="app-bar-element">
-      <span id="toggle-tiles-dropdown" class="mif-apps mif-2x"></span>
-      <div class="app-bar-drop-container" data-role="dropdown" data-toggle-element="#toggle-tiles-dropdown" data-no-close="false" style="width: 324px;">
-        <div class="tile-container bg-white">
-          <div class="tile-small bg-cyan">
-            <div class="tile-content iconic">
-              <span class="icon mif-onedrive"></span>
-            </div>
-          </div>
-          <div class="tile-small bg-yellow">
-            <div class="tile-content iconic">
-              <span class="icon mif-google"></span>
-            </div>
-          </div>
-          <div class="tile-small bg-red">
-            <div class="tile-content iconic">
-              <span class="icon mif-facebook"></span>
-            </div>
-          </div>
-          <div class="tile-small bg-green">
-            <div class="tile-content iconic">
-              <span class="icon mif-twitter"></span>
-            </div>
-          </div>
-        </div>
-      </div>
+    <a class="app-bar-element branding" href="<?php echo base_url('/'); ?>">
+      AutoBus
+      <span class="mif-apps mif-2x"></span>
     </a>
 
     <span class="app-bar-divider"></span>
     <ul class="app-bar-menu">
-      <li><a href="<?php echo base_url('/'); ?>">Beranda</a></li>
+      <li><a href="<?php echo base_url('/dashboard/'); ?>">Beranda</a></li>
       <li><a href="<?php echo base_url('/about/'); ?>">Tentang</a></li>
     </ul>
     <?php if ($logged_in === FALSE) { ?>

@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="<?php echo base_url('/assets/metrouicss/css/metro-schemes.css'); ?>" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/metrouicss/css/metro-icons.css'); ?>" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/metrouicss/css/metro-responsive.css'); ?>" />
-
+    <link rel="icon" href="<?php echo base_url('/files/images/icon/favicon.ico'); ?>">
     <script src="<?php echo base_url('/assets/jquery/jquery.js'); ?>"></script>
     <script src="<?php echo base_url('/assets/metrouicss/js/jquery.dataTable.js'); ?>"></script>
   </head>

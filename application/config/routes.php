@@ -65,3 +65,6 @@ $route['login'] = 'auth/Auth_CTRL/login';
 $route['logout'] = 'auth/Auth_CTRL/logout';
 
 $route['dashboard'] = 'Dashboard_CTRL/view/home';
+
+$route['json/search/ticket'] = 'JSON_CTRL/searchticket';
+$route['json/get/villagename'] = 'JSON_CTRL/getvillagename';

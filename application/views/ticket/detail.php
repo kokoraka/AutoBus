@@ -10,8 +10,8 @@
       <?php foreach ($ticket as $key => $value) { ?>
 
         <div class="panel">
-          <div class="heading">
-            <span class="icon mif-bus"></span>
+          <div class="heading bg-darkRed">
+            <span class="icon mif-bus bg-white fg-darkRed"></span>
             <span class="title"><?php echo $value->ticket_name; ?></span>
           </div>
 

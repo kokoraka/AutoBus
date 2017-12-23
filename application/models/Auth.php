@@ -8,7 +8,9 @@
     public function insert_user() {
       $data = [
         'user_username' => $this->input->post('username'),
-        'user_password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT)
+        'user_password' => password_hash($this->input->post('password'), PASSWORD_DEFAULT),
+        'user_realname' => '',
+        'authority_id' => 'USER'
       ];
       $try = $this->db->insert('user', $data);
       if ($try) {

@@ -39,7 +39,7 @@ class Ticket_CTRL extends CI_Controller {
  		else {
  			$data = [
  				'ticket' => $this->ticket->get_ticket_id($id),
- 				'logged_in' => $this->session->has_userdata('logged_in'),
+ 				'logged_in' => $this->session->has_userdata('logged_in')
  			];
       if ($this->ticket->get_ticket_id($id)) {
         $this->load->view('templates/header');
