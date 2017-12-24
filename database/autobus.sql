@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2017 at 07:46 PM
+-- Generation Time: Dec 24, 2017 at 08:33 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -7185,14 +7185,15 @@ CREATE TABLE IF NOT EXISTS `order` (
   `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `order_status` enum('W','P','D') COLLATE utf8_unicode_ci NOT NULL,
   `user_username` varchar(15) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `order`
 --
 
 INSERT INTO `order` (`order_id`, `order_date`, `order_status`, `user_username`) VALUES
-(5, '2017-12-25 01:43:44', 'W', 'raka');
+(5, '2017-12-25 01:43:44', 'W', 'raka'),
+(6, '2017-12-25 02:32:29', 'W', 'alif');
 
 -- --------------------------------------------------------
 
@@ -7206,14 +7207,16 @@ CREATE TABLE IF NOT EXISTS `orderdetail` (
   `orderdetail_quantity` int(10) unsigned NOT NULL,
   `order_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='orderdetail';
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci COMMENT='orderdetail';
 
 --
 -- Dumping data for table `orderdetail`
 --
 
 INSERT INTO `orderdetail` (`orderdetail_id`, `orderdetail_date`, `orderdetail_quantity`, `order_id`, `ticket_id`) VALUES
-(10, '2017-12-25 01:43:44', 1, 5, 6);
+(10, '2017-12-25 01:43:44', 1, 5, 6),
+(11, '2017-12-25 02:32:30', 1, 6, 6),
+(12, '2017-12-25 02:32:44', 1, 6, 4);
 
 -- --------------------------------------------------------
 
@@ -7823,8 +7826,8 @@ CREATE TABLE IF NOT EXISTS `ticket` (
 --
 
 INSERT INTO `ticket` (`ticket_id`, `ticket_name`, `ticket_quantity`, `ticket_price`, `ticket_date_added`, `ticket_date_depart`, `ticket_date_arrive`, `source_id`, `destination_id`, `bus_id`, `user_username`) VALUES
-(4, 'Dago - Majalaya', 5, 7000, '2017-12-23 13:08:07', '2017-12-24 06:00:00', '2017-12-24 07:00:00', '3273230006', '3204120009', 1, 'toor'),
-(6, 'Dago - Cibadak Express AC', 50, 2000, '2017-12-24 19:45:25', '2018-01-01 07:00:00', '2018-01-01 07:15:00', '3273230006', '3273050005', 1, 'toor');
+(4, 'Dago - Majalaya', 4, 7000, '2017-12-23 13:08:07', '2017-12-24 06:00:00', '2017-12-24 07:00:00', '3273230006', '3204120009', 1, 'toor'),
+(6, 'Dago - Cibadak Express AC', 49, 2000, '2017-12-24 19:45:25', '2018-01-01 07:00:00', '2018-01-01 07:15:00', '3273230006', '3273050005', 1, 'toor');
 
 -- --------------------------------------------------------
 
@@ -90103,12 +90106,12 @@ MODIFY `bus_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
 -- AUTO_INCREMENT for table `order`
 --
 ALTER TABLE `order`
-MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+MODIFY `order_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
 --
 -- AUTO_INCREMENT for table `orderdetail`
 --
 ALTER TABLE `orderdetail`
-MODIFY `orderdetail_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=11;
+MODIFY `orderdetail_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `ticket`
 --

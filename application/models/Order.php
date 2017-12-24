@@ -4,6 +4,7 @@
       parent::__construct();
       $this->load->database();
       $this->load->model('transaction');
+      $this->load->model('ticket');
     }
 
     public function get_order_status($type) {
@@ -59,6 +60,7 @@
   public function insert_detil($data) {
     $try = $this->db->insert('orderdetail', $data);
     if ($try) {
+      $this->ticket->decrease($data['ticket_id'], 1);
       return TRUE;
     }
     return FALSE;

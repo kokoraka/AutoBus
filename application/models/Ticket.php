@@ -86,7 +86,6 @@
     return FALSE;
   }
 
-
    public function change($data) {
      $field = array(
        'ticket_name' => $data['ticketname'],
@@ -108,6 +107,26 @@
      }
      return FALSE;
    }
+
+   public function decrease($id, $amount) {
+     $qty = $this->get_ticket_id($id)[0]->ticket_quantity;
+     if ($qty - $amount > 0) {
+       $qty = $this->get_ticket_id($id)[0]->ticket_quantity - $amount;
+       $field = array(
+         'ticket_quantity' => $qty,
+       );
+
+       $this->db->set($field);
+       $this->db->where('ticket_id', $id);
+       $try = $this->db->update('ticket', $field);
+       if ($try) {
+         return TRUE;
+       }
+       return FALSE;
+     }
+     return FALSE;
+   }
+
 
   }
 ?>
