@@ -38,5 +38,15 @@
      return FALSE;
    }
 
+   public function delete($id) {
+     $this->db->where('user_username', $id);
+     $try = $this->db->delete('user');
+     if ($try) {
+       return TRUE;
+     }
+     return FALSE;
+   }
+
+
   }
 ?>

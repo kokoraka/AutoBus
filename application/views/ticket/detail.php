@@ -45,7 +45,7 @@
               <div class="row cells1">
                 <div class="cell align-right">
                   <a class="button" href="<?php echo base_url('/ticket/'); ?>">Kembali</a>
-                  <button class="button bg-darkRed fg-white">Beli</button>
+                  <a class="button bg-darkRed fg-white" href="<?php echo base_url('/order/add/ticket/' . $value->ticket_id); ?>">Beli</a>
                 </div>
               </div>
             </div>

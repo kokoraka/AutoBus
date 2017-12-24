@@ -61,6 +61,8 @@ $route['register'] = 'auth/Auth_CTRL/register';
 $route['login'] = 'auth/Auth_CTRL/login';
 $route['logout'] = 'auth/Auth_CTRL/logout';
 
+$route['order/add/ticket/(:any)'] = 'Order_CTRL/addticket/$1';
+
 $route['dashboard'] = 'Dashboard_CTRL/view/home/';
 $route['dashboard/(:any)'] = 'Dashboard_CTRL/view/$1/';
 
@@ -77,6 +79,12 @@ $route['dashboard/add/ticket'] = 'Dashboard_CTRL/addticket';
 $route['dashboard/delete/ticket/(:any)'] = 'Dashboard_CTRL/deleteticket/$1';
 $route['dashboard/change/ticket/(:any)'] = 'Dashboard_CTRL/changeticket/$1';
 $route['dashboard/ticket/change/(:any)'] = 'Dashboard_CTRL/view/ticketchange/$1/';
+
+$route['dashboard/delete/order/(:any)'] = 'Dashboard_CTRL/deleteorder/$1';
+$route['dashboard/change/order/(:any)'] = 'Dashboard_CTRL/changeorder/$1';
+
+$route['dashboard/delete/transaction/(:any)'] = 'Dashboard_CTRL/deletetransaction/$1';
+$route['dashboard/delete/user/(:any)'] = 'Dashboard_CTRL/deleteuser/$1';
 
 $route['json/search/ticket'] = 'JSON_CTRL/searchticket';
 $route['json/get/villagename'] = 'JSON_CTRL/getvillagename';

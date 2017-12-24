@@ -10,6 +10,7 @@ class Dashboard_CTRL extends CI_Controller {
 		 $this->load->model('user');
 		 $this->load->model('bus');
 		 $this->load->model('ticket');
+		 $this->load->model('order');
 	 }
 
 	public function view($page = 'main', $id) {
@@ -27,6 +28,9 @@ class Dashboard_CTRL extends CI_Controller {
 					'bus' => $this->bus->get_bus(),
 					'ticket' => $this->ticket->get_ticket(),
 					'village' => $this->village->get_village(),
+					'order' => $this->order->get_order(),
+					'transaction' => $this->transaction->get_transaction(),
+					'users' => $this->user->get_user()
 				];
 				if ($id) {
 					$data['id'] = $id;
@@ -36,7 +40,15 @@ class Dashboard_CTRL extends CI_Controller {
 					if ($page == 'ticketchange') {
 						$data['ticket'] = $this->ticket->get_ticket_id($id);
 					}
+				}
 
+				$user = $this->auth->get_user($this->session->userdata('user_username'));
+				if ($user->authority_id == 'USER') {
+					if ($page == 'users' || $page == 'bus' || $page == 'ticket') {
+						redirect('dashboard');
+					}
+					$data['order'] = $this->order->get_order_username($this->session->userdata('user_username'));
+					$data['transaction'] = $this->transaction->get_transaction_username($this->session->userdata('user_username'));
 				}
 				$this->load->view('templates/header');
 				$this->load->view('templates/appbar', ['logged_in' => $this->session->has_userdata('logged_in')]);
@@ -132,6 +144,42 @@ class Dashboard_CTRL extends CI_Controller {
 			redirect('dashboard/ticket');
 		}
 		redirect('dashboard/ticket', 'refresh');
+	}
+
+
+	/* Order */
+
+	public function deleteorder($id) {
+		if ($this->order->delete($id) === TRUE) {
+			redirect('dashboard/order');
+		}
+		redirect('dashboard/order', 'refresh');
+	}
+
+	public function changeorder($id) {
+		$data = [
+			'orderid' => $id
+		];
+		if ($this->order->change($data) === TRUE) {
+			redirect('dashboard/order');
+		}
+		redirect('dashboard/order', 'refresh');
+	}
+
+	/* Transaction */
+	public function deletetransaction($id) {
+		if ($this->transaction->delete($id) === TRUE) {
+			redirect('dashboard/transaction');
+		}
+		redirect('dashboard/transaction', 'refresh');
+	}
+
+	/* User */
+	public function deleteuser($id) {
+		if ($this->user->delete($id) === TRUE) {
+			redirect('dashboard/users');
+		}
+		redirect('dashboard/users', 'refresh');
 	}
 
 }

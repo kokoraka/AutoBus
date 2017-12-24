@@ -12,6 +12,7 @@
                 <span class="title">Beranda</span>
               </a>
             </li>
+            <?php if ($user->authority_id == 'ROOT') { ?>
             <li class="<?php if ($page == 'bus' || $page == 'busadd'|| $page == 'buschange') {echo 'active';} ?> bg-hover-black fg-hover-white">
               <a href="<?php echo base_url('/dashboard/bus/') ?>">
                 <span class="mif-bus icon"></span>
@@ -26,19 +27,29 @@
                 <span class="counter"><?php echo count($ticket); ?></span>
               </a>
             </li>
+            <?php } ?>
+            <li class="<?php if ($page == 'order') {echo 'active';} ?> bg-hover-black fg-hover-white">
+              <a href="<?php echo base_url('/dashboard/order/') ?>">
+                <span class="mif-dollar icon"></span>
+                <span class="title">Pembelian</span>
+                <span class="counter"><?php echo count($order); ?></span>
+              </a>
+            </li>
             <li class="<?php if ($page == 'transaction') {echo 'active';} ?> bg-hover-black fg-hover-white">
               <a href="<?php echo base_url('/dashboard/transaction/') ?>">
                 <span class="mif-dollar2 icon"></span>
                 <span class="title">Transaksi</span>
-                <span class="counter">0</span>
+                <span class="counter"><?php echo count($transaction); ?></span>
               </a>
             </li>
+            <?php if ($user->authority_id == 'ROOT') { ?>
             <li class="<?php if ($page == 'users' || $page == 'usersadd'|| $page == 'userschange') {echo 'active';} ?> bg-hover-black fg-hover-white">
               <a href="<?php echo base_url('/dashboard/users/') ?>">
                 <span class="mif-users icon"></span>
                 <span class="title">Pengguna</span>
-                <span class="counter">0</span>
+                <span class="counter"><?php echo count($users) - 1; ?></span>
               </a>
             </li>
+            <?php } ?>
           </ul>
         </div>
