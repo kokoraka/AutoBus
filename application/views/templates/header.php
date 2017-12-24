@@ -10,7 +10,8 @@
     <link rel="stylesheet" href="<?php echo base_url('/assets/metrouicss/css/metro-icons.css'); ?>" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/metrouicss/css/metro-colors.css'); ?>" />
     <link rel="stylesheet" href="<?php echo base_url('/assets/metrouicss/css/metro-responsive.css'); ?>" />
-    <link rel="stylesheet" href="<?php echo base_url('/assets/custom/css/style.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('/assets/jquery.simple-dtpicker/jquery.simple-dtpicker.css'); ?>" />
+    <link rel="stylesheet" href="<?php echo base_url('/assets/custom/css/style.css'); ?>" />    
     <link rel="icon" href="<?php echo base_url('/files/images/icon/favicon.ico'); ?>">
     <script src="<?php echo base_url('/assets/jquery/jquery.js'); ?>"></script>
     <script src="<?php echo base_url('/assets/metrouicss/js/jquery.dataTable.js'); ?>"></script>

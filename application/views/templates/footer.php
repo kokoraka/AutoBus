@@ -24,6 +24,7 @@
 
     <script src="<?php echo base_url('/assets/metrouicss/js/metro.js'); ?>"></script>
     <script src="<?php echo base_url('/assets/metrouicss/js/select2.js'); ?>"></script>
+    <script src="<?php echo base_url('/assets/jquery.simple-dtpicker/jquery.simple-dtpicker.js'); ?>"></script>
     <script src="<?php echo base_url('/assets/custom/js/configuration.js'); ?>"></script>
   </body>
 </html>

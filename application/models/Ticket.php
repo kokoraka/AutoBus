@@ -56,5 +56,58 @@
      return $result;
    }
 
+
+   public function insert($data) {
+     $field = array(
+       'ticket_name' => $data['ticketname'],
+       'ticket_quantity' => $data['ticketquantity'],
+       'ticket_price' => $data['ticketprice'],
+       'bus_id' => $data['busid'],
+       'source_id' => $data['sourceid'],
+       'destination_id' => $data['destinationid'],
+       'ticket_date_depart' => $data['datedepart'],
+       'ticket_date_arrive' => $data['datearrive'],
+       'user_username' => $this->session->userdata('user_username')
+     );
+
+     $try = $this->db->insert('ticket', $field);
+     if ($try) {
+       return TRUE;
+     }
+     return FALSE;
+   }
+
+  public function delete($id) {
+    $this->db->where('ticket_id', $id);
+    $try = $this->db->delete('ticket');
+    if ($try) {
+      return TRUE;
+    }
+    return FALSE;
+  }
+
+
+   public function change($data) {
+     $field = array(
+       'ticket_name' => $data['ticketname'],
+       'ticket_quantity' => $data['ticketquantity'],
+       'ticket_price' => $data['ticketprice'],
+       'bus_id' => $data['busid'],
+       'source_id' => $data['sourceid'],
+       'destination_id' => $data['destinationid'],
+       'ticket_date_depart' => $data['datedepart'],
+       'ticket_date_arrive' => $data['datearrive'],
+       'user_username' => $this->session->userdata('user_username')
+     );
+
+     $this->db->set($field);
+     $this->db->where('ticket_id', $data['ticketid']);
+     $try = $this->db->update('ticket', $field);
+     if ($try) {
+       return TRUE;
+     }
+     return FALSE;
+   }
+
   }
 ?>

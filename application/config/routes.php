@@ -70,9 +70,13 @@ $route['dashboard/bus/add'] = 'Dashboard_CTRL/view/busadd/';
 $route['dashboard/delete/bus/(:any)'] = 'Dashboard_CTRL/deletebus/$1';
 $route['dashboard/change/bus/(:any)'] = 'Dashboard_CTRL/changebus/$1';
 $route['dashboard/bus/change/(:any)'] = 'Dashboard_CTRL/view/buschange/$1/';
-
-
 $route['dashboard/add/bus'] = 'Dashboard_CTRL/addbus';
+
+$route['dashboard/ticket/add'] = 'Dashboard_CTRL/view/ticketadd/';
+$route['dashboard/add/ticket'] = 'Dashboard_CTRL/addticket';
+$route['dashboard/delete/ticket/(:any)'] = 'Dashboard_CTRL/deleteticket/$1';
+$route['dashboard/change/ticket/(:any)'] = 'Dashboard_CTRL/changeticket/$1';
+$route['dashboard/ticket/change/(:any)'] = 'Dashboard_CTRL/view/ticketchange/$1/';
 
 $route['json/search/ticket'] = 'JSON_CTRL/searchticket';
 $route['json/get/villagename'] = 'JSON_CTRL/getvillagename';

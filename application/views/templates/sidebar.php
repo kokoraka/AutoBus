@@ -5,7 +5,7 @@
     <div class="flex-grid no-responsive-future">
       <div class="row">
         <div class="cell size-x200" id="cell-sidebar">
-          <ul class="sidebar bg-grayDark" style="min-height: 80vh;">
+          <ul class="sidebar bg-grayDark" style="min-height: 80vh; height: 100vh;">
             <li class="<?php if ($page == 'home') {echo 'active';} ?> bg-hover-black fg-hover-white">
               <a href="<?php echo base_url('/dashboard/') ?>">
                 <span class="mif-apps icon"></span>
@@ -16,14 +16,14 @@
               <a href="<?php echo base_url('/dashboard/bus/') ?>">
                 <span class="mif-bus icon"></span>
                 <span class="title">Bus</span>
-                <span class="counter">0</span>
+                <span class="counter"><?php echo count($bus); ?></span>
               </a>
             </li>
-            <li class="<?php if ($page == 'ticket') {echo 'active';} ?> bg-hover-black fg-hover-white">
+            <li class="<?php if ($page == 'ticket' || $page == 'ticketadd'|| $page == 'ticketchange') {echo 'active';} ?> bg-hover-black fg-hover-white">
               <a href="<?php echo base_url('/dashboard/ticket/') ?>">
                 <span class="mif-versions icon"></span>
                 <span class="title">Tiket</span>
-                <span class="counter">0</span>
+                <span class="counter"><?php echo count($ticket); ?></span>
               </a>
             </li>
             <li class="<?php if ($page == 'transaction') {echo 'active';} ?> bg-hover-black fg-hover-white">
@@ -33,7 +33,7 @@
                 <span class="counter">0</span>
               </a>
             </li>
-            <li class="<?php if ($page == 'users') {echo 'active';} ?> bg-hover-black fg-hover-white">
+            <li class="<?php if ($page == 'users' || $page == 'usersadd'|| $page == 'userschange') {echo 'active';} ?> bg-hover-black fg-hover-white">
               <a href="<?php echo base_url('/dashboard/users/') ?>">
                 <span class="mif-users icon"></span>
                 <span class="title">Pengguna</span>

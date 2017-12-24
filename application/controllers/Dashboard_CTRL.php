@@ -9,29 +9,41 @@ class Dashboard_CTRL extends CI_Controller {
 		 $this->load->model('auth');
 		 $this->load->model('user');
 		 $this->load->model('bus');
+		 $this->load->model('ticket');
 	 }
 
 	public function view($page = 'main', $id) {
-		if (!file_exists(FCPATH. 'application/views/dashboard/' . $page . '.php')) {
-			show_404();
+		if ($this->auth->logged_in() === FALSE) {
+			redirect('/');
 		}
 		else {
-			$data = [
-				'page' => $page,
-				'user' => $this->auth->get_user($this->session->userdata('user_username')),
-				'bus' => $this->bus->get_bus()
-			];
-			if ($id) {
-				$data['id'] = $id;
-				if ($page == 'buschange') {
-					$data['bus'] = $this->bus->get_bus_id($id);
-				}
+			if (!file_exists(FCPATH. 'application/views/dashboard/' . $page . '.php')) {
+				show_404();
 			}
-			$this->load->view('templates/header');
-			$this->load->view('templates/appbar', ['logged_in' => $this->session->has_userdata('logged_in')]);
-			$this->load->view('templates/sidebar', $data);
-			$this->load->view('dashboard/'. $page, $data);
-			$this->load->view('templates/footer');
+			else {
+				$data = [
+					'page' => $page,
+					'user' => $this->auth->get_user($this->session->userdata('user_username')),
+					'bus' => $this->bus->get_bus(),
+					'ticket' => $this->ticket->get_ticket(),
+					'village' => $this->village->get_village(),
+				];
+				if ($id) {
+					$data['id'] = $id;
+					if ($page == 'buschange') {
+						$data['bus'] = $this->bus->get_bus_id($id);
+					}
+					if ($page == 'ticketchange') {
+						$data['ticket'] = $this->ticket->get_ticket_id($id);
+					}
+
+				}
+				$this->load->view('templates/header');
+				$this->load->view('templates/appbar', ['logged_in' => $this->session->has_userdata('logged_in')]);
+				$this->load->view('templates/sidebar', $data);
+				$this->load->view('dashboard/'. $page, $data);
+				$this->load->view('templates/footer');
+			}
 		}
 	}
 
@@ -77,6 +89,49 @@ class Dashboard_CTRL extends CI_Controller {
 			redirect('dashboard/bus');
 		}
 		redirect('dashboard/bus', 'refresh');
+	}
+
+	/* Ticket */
+	public function addticket() {
+		$data = [
+			'ticketname' => $this->input->post('ticketname'),
+			'ticketquantity' => $this->input->post('ticketquantity'),
+			'ticketprice' => $this->input->post('ticketprice'),
+			'busid' => $this->input->post('busid'),
+			'sourceid' => $this->input->post('sourceid'),
+			'destinationid' => $this->input->post('destinationid'),
+			'datedepart' => $this->input->post('datedepart'),
+			'datearrive' => $this->input->post('datearrive'),
+		];
+		if ($this->ticket->insert($data) === TRUE) {
+			redirect('dashboard/ticket');
+		}
+		redirect('dashboard/ticket', 'refresh');
+	}
+
+	public function deleteticket($id) {
+		if ($this->ticket->delete($id) === TRUE) {
+			redirect('dashboard/ticket');
+		}
+		redirect('dashboard/ticket', 'refresh');
+	}
+
+	public function changeticket($id) {
+		$data = [
+			'ticketid' => $id,
+			'ticketname' => $this->input->post('ticketname'),
+			'ticketquantity' => $this->input->post('ticketquantity'),
+			'ticketprice' => $this->input->post('ticketprice'),
+			'busid' => $this->input->post('busid'),
+			'sourceid' => $this->input->post('sourceid'),
+			'destinationid' => $this->input->post('destinationid'),
+			'datedepart' => $this->input->post('datedepart'),
+			'datearrive' => $this->input->post('datearrive'),
+		];
+		if ($this->ticket->change($data) === TRUE) {
+			redirect('dashboard/ticket');
+		}
+		redirect('dashboard/ticket', 'refresh');
 	}
 
 }

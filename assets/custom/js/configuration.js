@@ -8,6 +8,12 @@ $(document).ready(function() {
       });
   });
 
+  if ($('.dtpicker').length > 0) {
+    $('.dtpicker').appendDtpicker(
+      
+    );
+  }
+
   if ($('.select2').length > 0) {
     $('.select2').select2();
   }
