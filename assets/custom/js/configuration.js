@@ -1,4 +1,13 @@
 $(document).ready(function() {
+  $(function(){
+      $('.sidebar').on('click', 'li', function(){
+          if (!$(this).hasClass('active')) {
+              $('.sidebar li').removeClass('active');
+              $(this).addClass('active');
+          }
+      });
+  });
+
   if ($('.select2').length > 0) {
     $('.select2').select2();
   }

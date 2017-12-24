@@ -57,14 +57,22 @@ $route['about'] = 'Home_CTRL/view/about';
 $route['ticket'] = 'Ticket_CTRL/view/ticket';
 $route['ticket/(:num)'] = 'Ticket_CTRL/detail/$1';
 
-$route['admin'] = 'Admin_CTRL/view';
-$route['admin/(:any)'] = 'Admin_CTRL/view/$1';
-
 $route['register'] = 'auth/Auth_CTRL/register';
 $route['login'] = 'auth/Auth_CTRL/login';
 $route['logout'] = 'auth/Auth_CTRL/logout';
 
-$route['dashboard'] = 'Dashboard_CTRL/view/home';
+$route['dashboard'] = 'Dashboard_CTRL/view/home/';
+$route['dashboard/(:any)'] = 'Dashboard_CTRL/view/$1/';
+
+$route['dashboard/change/profile'] = 'Dashboard_CTRL/changeprofile';
+
+$route['dashboard/bus/add'] = 'Dashboard_CTRL/view/busadd/';
+$route['dashboard/delete/bus/(:any)'] = 'Dashboard_CTRL/deletebus/$1';
+$route['dashboard/change/bus/(:any)'] = 'Dashboard_CTRL/changebus/$1';
+$route['dashboard/bus/change/(:any)'] = 'Dashboard_CTRL/view/buschange/$1/';
+
+
+$route['dashboard/add/bus'] = 'Dashboard_CTRL/addbus';
 
 $route['json/search/ticket'] = 'JSON_CTRL/searchticket';
 $route['json/get/villagename'] = 'JSON_CTRL/getvillagename';

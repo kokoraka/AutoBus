@@ -17,5 +17,26 @@
      }
    }
 
+   public function update_user($data) {
+     $field = array(
+      'user_realname' => $data['realname']
+     );
+
+     if ($data['password']) {
+       $field = array(
+         'user_realname' => $data['realname'],
+         'user_password' => password_hash($data['password'], PASSWORD_DEFAULT)
+       );
+     }
+
+     $this->db->set($field);
+     $this->db->where('user_username', $data['username']);
+     $try = $this->db->update('user', $field);
+     if ($try) {
+       return TRUE;
+     }
+     return FALSE;
+   }
+
   }
 ?>
