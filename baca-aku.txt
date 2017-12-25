@@ -32,8 +32,10 @@ Installation
 5. Well done!
 
 P.S.
+
 1. There was issued with session_config method. If you facing this issue, please look on application/config.php under sess_save_path path and set it with: BASEPATH . 'application/cache'
 
+2. Import database with mysql < file.sql method (or increase your php setting limits)
 
 ###################
 
