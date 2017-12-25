@@ -14,39 +14,11 @@
       <li class="place-right bg-grayDark fg-white">
         <a href="#" class="dropdown-toggle">Lokasi</a>
         <ul class="d-menu place-right bg-grayDark fg-white bg-hover-white fg-hover-grayDark" data-role="dropdown">
-          <li class="bg-grayDark fg-white bg-hover-white fg-hover-grayDark"><a href="#">Asal</a></li>
-          <li class="bg-grayDark fg-white bg-hover-white fg-hover-grayDark"><a href="#">Tujuan</a></li>
+          <li class="bg-grayDark fg-white bg-hover-white fg-hover-black"><a class="bg-hover-white fg-hover-black" href="<?php echo base_url('/ticket/') ?>">Asal</a></li>
+          <li class="bg-grayDark fg-white bg-hover-white fg-hover-black"><a class="bg-hover-white fg-hover-black" href="<?php echo base_url('/ticket/') ?>">Tujuan</a></li>
         </ul>
       </li>
 
-      <li class="bg-grayDark fg-white">
-        <a href="#" class="dropdown-toggle">Overview</a>
-        <div class="m-menu-container" data-role="dropdown" data-no-close="true">
-          <div class="grid no-margin">
-            <div class="row cells5">
-              <div class="cell padding10">
-                <img src="images/me.jpg">
-              </div>
-              <div class="cell colspan2">
-                <h2 class="fg-white text-bold text-shadow">Metro UI CSS 3.0</h2>
-                <p class="padding20 no-padding-top no-padding-left no-padding-bottom fg-white">
-                  Metro UI CSS a set of styles to create a site with an interface similar to Windows 8.
-                </p>
-                <p class="fg-white text-bold">
-                  Sergey Pimenov
-                </p>
-              </div>
-              <div class="cell colspan2">
-                <ul class="unstyled-list">
-                  <li>
-                    <h3 class="text-shadow">Begin with Metro UI CSS</h3></li>
-                  <li><a class="fg-white" href="#">Requirements</a></li>
-                </ul>
-              </div>
-            </div>
-          </div>
-        </div>
-      </li>
     </ul>
 
   </header>
@@ -108,7 +80,7 @@
           </div>
         </div>
         </a>
-        
+
         <a href="<?php echo base_url('/dashboard/') ?>">
         <div class="tile bg-white fg-dark" data-role="tile">
           <div class="tile-content iconic">
@@ -116,7 +88,7 @@
           </div>
         </div>
         </a>
-        
+
         <a href="<?php echo base_url('/dashboard/') ?>">
         <div class="tile bg-darkRed fg-white" data-role="tile">
           <div class="tile-content iconic">
