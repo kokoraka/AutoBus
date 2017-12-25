@@ -15,6 +15,9 @@ Installation
 4. Access your domain (ex: localhost or another domain you've point up)
 5. Well done!
 
+P.S.
+1. There was issued with session_config method. If you facing this issue, please look on application/config.php under sess_save_path path and set it with: BASEPATH . 'application/cache'
+
 ###################
 See you on: Gurisa.Com
 Or blog: Ngaret.Com

@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 24, 2017 at 08:33 PM
+-- Generation Time: Dec 25, 2017 at 08:17 PM
 -- Server version: 5.6.21
 -- PHP Version: 5.6.3
 
@@ -49,7 +49,7 @@ CREATE TABLE IF NOT EXISTS `bus` (
 `bus_id` int(11) NOT NULL,
   `bus_name` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `bus_capacity` int(2) unsigned NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `bus`
@@ -7182,7 +7182,7 @@ INSERT INTO `district` (`district_id`, `district_name`, `regency_id`) VALUES
 
 CREATE TABLE IF NOT EXISTS `order` (
 `order_id` int(11) NOT NULL,
-  `order_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `order_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `order_status` enum('W','P','D') COLLATE utf8_unicode_ci NOT NULL,
   `user_username` varchar(15) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -7192,8 +7192,8 @@ CREATE TABLE IF NOT EXISTS `order` (
 --
 
 INSERT INTO `order` (`order_id`, `order_date`, `order_status`, `user_username`) VALUES
-(5, '2017-12-25 01:43:44', 'W', 'raka'),
-(6, '2017-12-25 02:32:29', 'W', 'alif');
+(5, '2017-12-24 18:43:44', 'W', 'raka'),
+(6, '2017-12-24 19:32:29', 'W', 'alif');
 
 -- --------------------------------------------------------
 
@@ -7203,7 +7203,7 @@ INSERT INTO `order` (`order_id`, `order_date`, `order_status`, `user_username`) 
 
 CREATE TABLE IF NOT EXISTS `orderdetail` (
 `orderdetail_id` int(11) NOT NULL,
-  `orderdetail_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `orderdetail_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `orderdetail_quantity` int(10) unsigned NOT NULL,
   `order_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL
@@ -7214,9 +7214,9 @@ CREATE TABLE IF NOT EXISTS `orderdetail` (
 --
 
 INSERT INTO `orderdetail` (`orderdetail_id`, `orderdetail_date`, `orderdetail_quantity`, `order_id`, `ticket_id`) VALUES
-(10, '2017-12-25 01:43:44', 1, 5, 6),
-(11, '2017-12-25 02:32:30', 1, 6, 6),
-(12, '2017-12-25 02:32:44', 1, 6, 4);
+(10, '2017-12-24 18:43:44', 1, 5, 6),
+(11, '2017-12-24 19:32:30', 1, 6, 6),
+(12, '2017-12-24 19:32:44', 1, 6, 4);
 
 -- --------------------------------------------------------
 
@@ -7812,7 +7812,7 @@ CREATE TABLE IF NOT EXISTS `ticket` (
   `ticket_name` varchar(100) COLLATE utf8_unicode_ci NOT NULL,
   `ticket_quantity` int(10) unsigned NOT NULL,
   `ticket_price` int(10) unsigned NOT NULL,
-  `ticket_date_added` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `ticket_date_added` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `ticket_date_depart` datetime NOT NULL,
   `ticket_date_arrive` datetime NOT NULL,
   `source_id` char(10) COLLATE utf8_unicode_ci NOT NULL,
@@ -7826,8 +7826,8 @@ CREATE TABLE IF NOT EXISTS `ticket` (
 --
 
 INSERT INTO `ticket` (`ticket_id`, `ticket_name`, `ticket_quantity`, `ticket_price`, `ticket_date_added`, `ticket_date_depart`, `ticket_date_arrive`, `source_id`, `destination_id`, `bus_id`, `user_username`) VALUES
-(4, 'Dago - Majalaya', 4, 7000, '2017-12-23 13:08:07', '2017-12-24 06:00:00', '2017-12-24 07:00:00', '3273230006', '3204120009', 1, 'toor'),
-(6, 'Dago - Cibadak Express AC', 49, 2000, '2017-12-24 19:45:25', '2018-01-01 07:00:00', '2018-01-01 07:15:00', '3273230006', '3273050005', 1, 'toor');
+(4, 'Dago - Majalaya', 4, 7000, '2017-12-23 06:08:07', '2017-12-24 06:00:00', '2017-12-24 07:00:00', '3273230006', '3204120009', 1, 'toor'),
+(6, 'Dago - Cibadak Express AC', 49, 2000, '2017-12-24 12:45:25', '2018-01-01 07:00:00', '2018-01-01 07:15:00', '3273230006', '3273050005', 1, 'toor');
 
 -- --------------------------------------------------------
 
@@ -7837,7 +7837,7 @@ INSERT INTO `ticket` (`ticket_id`, `ticket_name`, `ticket_quantity`, `ticket_pri
 
 CREATE TABLE IF NOT EXISTS `transaction` (
 `transaction_id` int(11) NOT NULL,
-  `transaction_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `transaction_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `user_username` varchar(15) COLLATE utf8_unicode_ci NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -7846,7 +7846,7 @@ CREATE TABLE IF NOT EXISTS `transaction` (
 --
 
 INSERT INTO `transaction` (`transaction_id`, `transaction_date`, `user_username`) VALUES
-(4, '2017-12-25 01:39:11', 'raka');
+(4, '2017-12-24 18:39:11', 'raka');
 
 -- --------------------------------------------------------
 
@@ -7856,7 +7856,7 @@ INSERT INTO `transaction` (`transaction_id`, `transaction_date`, `user_username`
 
 CREATE TABLE IF NOT EXISTS `transactiondetail` (
 `transactiondetail_id` int(11) NOT NULL,
-  `transactiondetail_date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  `transactiondetail_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `transactiondetail_quantity` int(10) unsigned NOT NULL,
   `transaction_id` int(11) NOT NULL,
   `ticket_id` int(11) NOT NULL
@@ -7867,9 +7867,9 @@ CREATE TABLE IF NOT EXISTS `transactiondetail` (
 --
 
 INSERT INTO `transactiondetail` (`transactiondetail_id`, `transactiondetail_date`, `transactiondetail_quantity`, `transaction_id`, `ticket_id`) VALUES
-(7, '2017-12-25 01:39:11', 1, 4, 6),
-(8, '2017-12-25 01:39:11', 1, 4, 4),
-(9, '2017-12-25 01:39:11', 1, 4, 4);
+(7, '2017-12-24 18:39:11', 1, 4, 6),
+(8, '2017-12-24 18:39:11', 1, 4, 4),
+(9, '2017-12-24 18:39:11', 1, 4, 4);
 
 -- --------------------------------------------------------
 
@@ -90101,7 +90101,7 @@ ALTER TABLE `village`
 -- AUTO_INCREMENT for table `bus`
 --
 ALTER TABLE `bus`
-MODIFY `bus_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+MODIFY `bus_id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
 --
 -- AUTO_INCREMENT for table `order`
 --
